@@ -112,7 +112,7 @@ module.exports.searchListing = async (req, res) => {
     // console.log('Search query:', query);  // Log the search query
 
     if (!query) {
-        res.redirect("/listings");
+        return res.redirect("/listings");
     }
 
     let searchResults = await Listing.find({

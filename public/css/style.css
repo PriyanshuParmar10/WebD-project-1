@@ -180,6 +180,7 @@ div i{
 .tax-toggle{
     border: 1px solid gray;
     height: 3.5rem;
+    width: 16rem;
     padding: 1rem;
     border-radius: 1rem;
 }
@@ -188,7 +189,115 @@ div i{
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-/* navbar search */
 
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center; /* Ensures the arrows and categories are aligned in the same row */
+  }
+  
+  .page-item {
+    list-style-type: none;
+    padding: 10px;
+  }
+  
+  .page-link {
+    text-decoration: none;
+    display: block;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .page-link:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Category link styles */
+  .category-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+  
+  .filter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .filter i {
+    font-size: 18px;
+  }
+  
+  .filter p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  /* Ensure arrows stay aligned in a row */
+  .prev, .next {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Make sure items don't wrap on smaller screens */
+  @media (max-width: 768px) {
+    .pagination {
+      gap: 10px;
+      flex-wrap: nowrap; /* Prevent wrapping */
+      justify-content: flex-start;
+      overflow-x: auto; /* Allows horizontal scrolling if needed */
+    }
+  
+    .page-item {
+      padding: 8px;
+    }
+  
+    .category-link .filter {
+      flex-direction: row; /* Ensure items stay in one row */
+    }
+  
+    .filter i {
+      font-size: 24px;
+    }
+  
+    .filter p {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .pagination {
+      gap: 5px;
+      flex-wrap: nowrap; /* Prevent wrapping */
+      justify-content: flex-start;
+      overflow-x: auto; /* Allows horizontal scrolling if needed */
+    }
+  
+    .category-link .filter {
+      flex-direction: row; /* Ensure items stay in one row */
+    }
+  
+    .filter i {
+      font-size: 20px;
+    }
+  
+    .filter p {
+      font-size: 10px;
+    }
+  }
+  
 
 
