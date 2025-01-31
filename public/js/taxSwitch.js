@@ -9,14 +9,14 @@ let taxSwitch = document.getElementById("flexSwitchCheckDefault");
             let basePrice = parseFloat(priceElement.getAttribute("data-price"));
 
             if (taxSwitch.checked) {
-                // Show original price
-                priceElement.innerHTML = basePrice.toLocaleString("en-IN");
-                taxInfo[i].style.display = "none";
+               // Show GST-inclusive price
+               let newPrice = basePrice * 1.18;
+               priceElement.innerHTML = newPrice.toLocaleString("en-IN");
+               taxInfo[i].style.display = "inline";
             } else {
-                // Show GST-inclusive price
-                let newPrice = basePrice * 1.18;
-                priceElement.innerHTML = newPrice.toLocaleString("en-IN");
-                taxInfo[i].style.display = "inline";
+                 // Show original price
+                 priceElement.innerHTML = basePrice.toLocaleString("en-IN");
+                 taxInfo[i].style.display = "none";
             }
         }
     });

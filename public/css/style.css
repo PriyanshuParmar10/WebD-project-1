@@ -187,15 +187,28 @@ div i{
 }
 
 .tax-toggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
     border: 1px solid gray;
     height: 3.5rem;
-    width: 16rem;
+    width: 15rem;
     padding: 1rem;
     border-radius: 1rem;
 }
 .tax-toggle:hover{
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* For larger screens (md and up), you can align it to the right or add any custom styling */
+@media (min-width: 768px) {
+  .tax-toggle {
+      display: flex;
+      justify-content: center; /* Aligns to the left for medium and larger screens */
+      margin: 20px;
+  }
 }
 
 
@@ -369,4 +382,5 @@ div i{
         align-items: center;
     }
 }
+
 
