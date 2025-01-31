@@ -7,7 +7,7 @@ if(process.env.NODE_ENV !="production"){
 const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
-const mongo_url="mongodb://127.0.0.1:27017/WanderLust";
+// const mongo_url="mongodb://127.0.0.1:27017/WanderLust";
 const db_url=process.env.ATLASDB_URL;
 const path=require("path");
 const methodOverride=require("method-override");
@@ -35,7 +35,7 @@ main().then(()=>{
 });
 
 async function main() {
-    await mongoose.connect(mongo_url);
+    await mongoose.connect(db_url);
 }
 
 
@@ -49,22 +49,22 @@ app.engine("ejs",ejsMate);
 
 
 // mongo store for session
-// const store=MongoStore.create({
-    // mongoUrl:db_url,
-    // touchAfter:24*60*60,
-    // crypto:{
-    //     secret:process.env.SECRETE
-    // },
-    // touchAfter:24*60*60
-// });
+const store=MongoStore.create({
+    mongoUrl:db_url,
+    touchAfter:24*60*60,
+    crypto:{
+        secret:process.env.SECRETE
+    },
+    touchAfter:24*60*60
+});
 
-// store.on("error",(e)=>{
-//     console.log("Error in MONGO SESSION STORE",e);
-// }   );
+store.on("error",(e)=>{
+    console.log("Error in MONGO SESSION STORE",e);
+}   );
 
 // session options
 const sessionOptions={
-    // store,
+    store,
     secret:process.env.SECRETE,
     resave:false,
     saveUninitialized:true,
